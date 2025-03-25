@@ -1,0 +1,151 @@
+body {
+    background: linear-gradient(270deg, #6a11cb, #2575fc, #00c9a7);
+    background-size: 600% 600%;
+    animation: gradientFlow 12s ease infinite;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+section {
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    background: #2575fc;
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #6a11cb;
+}
+
+#rant-section {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#rant-text {
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 16px;
+}
+
+#submit-rant {
+    background: #2575fc;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#submit-rant:hover {
+    background: #6a11cb;
+}
+
+#privacy-section {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+   
+}
+
+#reset-section {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#reset-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+#reset-btn:hover {
+    background-color: #cc0000;
+}
+
+#feedback-section {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+#feedback-text {
+    font-size: 18px;
+    font-style: italic;
+    color: #fff;
+}
+
+
+#chart-section {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+canvas {
+    width: 100% !important;
+    height: auto !important;
+}
+
+
+
+
+
+.content-box {
+    padding: 15px;
+    margin: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
