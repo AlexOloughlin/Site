@@ -127,15 +127,21 @@ document.addEventListener("DOMContentLoaded", () => {
     updateFeedback();
 });
 
-// Handle rant submission
-document.getElementById('submit-rant').addEventListener('click', function () {
-    const rantText = document.getElementById('rant-text').value;
+document.getElementById('vent-submit').addEventListener('click', function() {
+    const ventText = document.getElementById('vent-box').value;
 
-    if (rantText.trim() !== "") {
-        document.getElementById('rant-response').innerText = "Thank you for sharing your thoughts. You are heard.";
-        document.getElementById('rant-text').value = "";  // Clear text area after submission
+    if (ventText.trim() === '') {
+        document.getElementById('vent-feedback').textContent = 'Please type something to vent!';
+        document.getElementById('vent-feedback').style.color = 'red';
     } else {
-        document.getElementById('rant-response').innerText = "Please write something before submitting.";
+        // Store vent in localStorage or send it to a backend
+        const previousVents = JSON.parse(localStorage.getItem('vents')) || [];
+        previousVents.push(ventText);
+        localStorage.setItem('vents', JSON.stringify(previousVents));
+
+        document.getElementById('vent-box').value = ''; // Clear the text area
+        document.getElementById('vent-feedback').textContent = 'Your thoughts have been submitted!';
+        document.getElementById('vent-feedback').style.color = 'green';
     }
 });
 
