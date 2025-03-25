@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Wellness Tracker</title>
+    <link rel="stylesheet" href="css.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+	<script defer src="java.js"></script>
+	<style>
+	.down {
+	text-size = 40px;
+	} 
+	</style>
+</head>
+<body>
+    <header>
+        <h1>Take a Break from Technology</h1>
+        <p>Log your mood, track your tech usage, and reflect on your well-being.</p>
+		<div class = "down"
+		<a href= "Down Time">| Down Time |</a>
+		</div>
+    </header>
+    
+   <section id="log-section">
+        <h2>Log Your Mood & Tech Time</h2>
+        <form id="log-form">
+            <label for="mood">Mood:</label>
+            <select id="mood">
+                <option value="1"> Sad</option>
+                <option value="2"> Neutral</option>
+                <option value="3"> Happy</option>
+                <option value="4"> Excited</option>
+                <option value="5"> Relaxed</option>
+            </select>
+            
+            <label for="tech-time">Time Spent on Tech (hours):</label>
+            <input type="number" id="tech-time" required>
+            
+            <button type="submit">Log Entry</button>
+			
+			<section id="entries-section">
+    <h2>View Previous Logs</h2>
+    <ul id="entries-list"></ul>
+</section>
+
+<section id="reset-section">
+    <button id="reset-btn">Reset Data</button>
+</section>
+        </form>
+    </section>
+    
+    <section id="chart-section">
+        <h2>Usage & Mood Trends</h2>
+        <canvas id="moodChart"></canvas>
+    </section>
+    
+    <section id="feedback-section">
+        <h2>Your Wellness Insights</h2>
+        <p id="feedback-text">Your insights will appear here based on your logged data.</p>
+    </section>
+    
+    <section id="reminder-section">
+        <h2>Daily Reminder</h2>
+        <input type="time" id="reminder-time">
+        <button onclick="setReminder()">Set Reminder</button>
+        <p id="reminder-set">No reminder set.</p>
+    </section>
+    
+    <section id="learning-section">
+        <h2>Wellness Learning</h2>
+        <div class="content-box">
+            <h3>Mindfulness & Meditation</h3>
+			<p>Mindfulness is all about being present in the moment, without judgment. It involves techniques like:</p>
+						<p>-Focused Breathing: Pay attention to your inhale and exhale, counting each breath to calm your mind.</p>
+									<p>-Body Scanning: Notice sensations in different parts of your body, starting from your toes and working upwards.</p>
+												<p>-Guided Imagery: Visualize calming settings, like a peaceful beach or lush forest. Practicing mindfulness can reduce stress, improve concentration, and even enhance emotional resilience over time.</p>
+            <h3>Learn how to disconnect and find balance.</h3>
+        </div>
+        <div class="content-box">
+            <h3>Healthy Tech Habits</h3>
+			<p>Technology can both connect and overwhelm us. Some strategies to manage it:</p> 
+						<p>Set Usage Goals: For instance, dedicate specific times of the day to check emails or scroll through social media.</p>
+									<p>Use Digital Well-being Apps: Track your screen time and set reminders to take breaks.</p>
+												<p>Optimize Notifications: Turn off unnecessary alerts to maintain focus and peace of mind. The key is to use tech as a tool that enriches your life without letting it dominate your attention.</p>		
+            <h3>Discover ways to use technology more effectively.</h3>
+        </div>
+        <div class="content-box">
+            <h3>Physical Activity & Wellness</h3>
+        			<p>Physical activity not only keeps your body healthy but also has powerful mental health benefits:</p>
+								<p>Aerobic Exercise: Activities like jogging, swimming, or dancing release endorphins, the "feel-good" hormones.</p>
+											<p>Strength Training: Build muscle while boosting your metabolism.</p>
+														<p>Mind-Body Exercises: Yoga, Pilates, and Tai Chi enhance flexibility and focus while reducing stress. Even short 10–15-minute sessions can make a significant difference in your energy levels and mood.</p>
+            <h3>Exercise can improve mood and reduce stress.</h3>
+        </div>
+        <div class="content-box">
+            <h3>Digital Detox Strategies</h3>
+						<p>Unplugging from digital devices can feel freeing:</p>
+                                       <p>Set Boundaries: Create "tech-free" times, like during meals or before bed.</p>
+									                 <p>Engage in Offline Hobbies: Rekindle interests like gardening, painting, or playing a musical instrument</p>
+													                   <p>Detox Days: Commit to spending an entire day free from screens once a week or month. A digital detox gives your brain space to recharge and can help improve your productivity and creativity.</p>
+						
+            <h3>Tips on how to take effective breaks from screens.</h3>
+        </div>
+        <div class="content-box">
+            <h3>Sleep & Screen Time</h3>
+						<p>Screen exposure, especially before bed, can disrupt your circadian rhythm. Here's how to tackle this:</p>
+									<p>Blue Light Filters: Use apps or device settings to reduce blue light exposure in the evening.</p>
+												<p>Evening Wind-Down Routine: Replace screen time with reading, journaling, or light stretches.</p>
+															<p>Tech-Free Bedroom: Keep devices out of your sleeping space to encourage better sleep hygiene. These small changes can lead to more restful nights and energized mornings.</p>
+            <h3>Understand how screen time affects sleep quality.</h3>
+        </div>
+        <div class="content-box">
+            <h3>Social Media Balance</h3>
+						<p>Social media can be enriching or draining, depending on how you use it:</p>
+									<p>Be Selective: Unfollow accounts that trigger negativity or comparison and focus on content that inspires you.</p>
+												<p>Set Time Limits: Most platforms now allow you to set daily usage caps.</p>
+															<p>Engage Purposefully: Use social media to connect meaningfully with friends or communities rather than mindlessly scrolling. This ensures you're deriving value from your time online.</p>
+            <h3>Ways to manage and limit social media consumption.</h3>
+        </div>
+        <div class="content-box">
+            <h3>Productivity & Focus</h3>
+						<p>Staying focused in a world full of distractions is a challenge, but these tips can help:</p>
+									<p>Time Management Techniques: Use methods like the Pomodoro Technique (work for 25 minutes, break for 5).</p>
+												<p>Declutter Your Workspace: A tidy environment can reduce distractions and enhance creativity.</p>
+															<p>Apps for Focus: Tools like Trello, Notion, or Forest can help you stay on track with tasks. Consistency and planning are key to achieving your goals while maintaining balance.</p>
+            <h3>How to use technology to enhance focus and work.</h3>
+        </div>
+        <div class="content-box">
+            <h3>Self-Reflection & Growth</h3>
+			<p>Self-reflection helps you align with your values and aspirations:</p>
+				<p>Journaling Prompts: Write about your daily highlights, challenges, and lessons learned.</p>
+					<p>Gratitude Practice: Note three things you're grateful for each day.</p>
+						<p>Vision Boards: Create visual representations of your goals to keep you motivated and inspired. Taking time to pause and reflect fosters personal development and clarity in your journey.</p>
+            <h3>Journaling and self-awareness techniques for wellness.</h3>
+        </div>
+   <section id="rant-section">
+    <h2>Vent or Share Your Thoughts</h2>
+    <textarea id="rant-text" placeholder="Feel free to write anything on your mind..."></textarea>
+    <button id="submit-rant">Submit</button>
+    <p id="rant-response"></p>
+</section>
+
+<section id="privacy-section">
+    <p><strong>Privacy Notice:</strong> Your submission will remain anonymous. We will not share or view your data with any third parties. This space is for you to express yourself freely without concern for consequences.</p>
+</section>
+
+
+
+
+
+
+
+
+
+    
+    <script src="java.js"></script>
+</body>
+</html>
